@@ -1,0 +1,23 @@
+{
+	"name": "diary-cli",
+	"version": "0.0.1",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "ts-node index.ts"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/prompts": "^2.4.5",
+		"eslint-config-conf": "./eslint-config-conf"
+	},
+	"dependencies": {
+		"@types/node": "^20.8.2",
+		"eslint": "^8.50.0",
+		"prompts": "^2.4.2",
+		"ts-node": "^10.9.1"
+	}
+}
