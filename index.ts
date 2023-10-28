@@ -48,21 +48,30 @@ function generateFiles() {
 				""
 			);
 		}
+	} else if (!fs.existsSync(currentDayFile)) {
+		const currentDayFile = path.join(
+			currentDiaryMonthDirectory,
+			`${currentDay}.md`
+		);
+		if (!fs.existsSync(currentDayFile)) {
+			fs.writeFileSync(
+				path.join(currentDiaryMonthDirectory, `${currentDay}.md`),
+				""
+			);
+		}
 	}
 }
 
 (async function () {
-	let dir = __dirname;
-	console.log("LOG ~ file: index.ts:28 ~ dir:", dir);
-
 	const response = await prompts([
 		{
 			name: "dir",
 			type: "text",
-			message: "dir?"
+			message: `enter`,
+			validate: function (val) {
+				generateFiles();
+				return true;
+			}
 		}
 	]);
-	console.log("LOG ~ file: index.ts:67 ~ response:", response);
-	dir = response.dir;
-	console.log("LOG ~ file: index.ts:28 ~ dir:", dir);
 })();
